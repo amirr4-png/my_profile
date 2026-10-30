@@ -1,1 +1,197 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile - Amir</title>
+    <style>
+        /* خلفية جديدة مضيئة ومشرقة بتدرجات أزرق وبنفسجي عصري */
+        body {
+            text-align: center;
+            background: linear-gradient(135deg, #1a1c4b, #27496d, #0093E9);
+            color: #ffffff;
+            padding: 40px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* عنوان الترحيب مع إضاءة براقة */
+        .welcome-title {
+            color: #00ffff;
+            font-size: 32px;
+            margin-bottom: 8px;
+            text-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+        }
+
+        .subtitle {
+            color: #ffbb33;
+            font-size: 17px;
+            font-weight: 600;
+            margin-top: 0;
+            text-shadow: 0 0 15px rgba(255, 187, 51, 0.4);
+        }
+
+        /* خط فاصل أنيق */
+        hr {
+            width: 30%;
+            border: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+            margin: 25px auto;
+        }
+
+        /* صندوق الزجاج الشفاف */
+        .card-box {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            padding: 20px;
+            width: 100%;
+            max-width: 380px;
+            margin: 15px auto;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+        }
+
+        .card-box h3 {
+            color: #ff4081;
+            margin-top: 0;
+            font-size: 18px;
+            text-shadow: 0 0 12px rgba(255, 64, 129, 0.4);
+        }
+
+        .card-box p {
+            color: #f0f0f0;
+            font-size: 15px;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* زر انستاغرام مع إضاءة ملونة */
+        .btn-container {
+            margin-top: 20px;
+            width: 100%;
+            max-width: 380px;
+        }
+
+        .social-btn {
+            background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+            color: white;
+            border: none;
+            padding: 14px 20px;
+            font-size: 16px;
+            border-radius: 14px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+            box-shadow: 0 4px 20px rgba(253, 29, 29, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .social-btn:hover {
+            transform: scale(1.03);
+            box-shadow: 0 6px 25px rgba(253, 29, 29, 0.8);
+        }
+
+        .social-btn a {
+            color: white;
+            text-decoration: none;
+            display: block;
+        }
+
+        /* قسم التقييم بالنجوم */
+        .rating-box {
+            margin-top: 25px;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 14px;
+            width: 100%;
+            max-width: 380px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .rating-title {
+            font-size: 14px;
+            color: #ffbb33;
+            margin-bottom: 8px;
+        }
+
+        .stars {
+            font-size: 28px;
+            cursor: pointer;
+            user-select: none;
+            direction: ltr;
+        }
+
+        .star {
+            color: #666;
+            transition: color 0.2s, text-shadow 0.2s;
+            display: inline-block;
+            padding: 0 3px;
+        }
+
+        .star:hover,
+        .star.active {
+            color: #ffd700;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.9);
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Header Titles -->
+    <h1 class="welcome-title">Welcome! I'm Amir 👋</h1>
+    <p class="subtitle">A Beginner Developer Building Code from Phone Only 📱✨</p>
+
+    <hr>
+
+    <!-- Bio Card -->
+    <div class="card-box">
+        <h3>📝 About Me</h3>
+        <p>
+            An ambitious coder learning web development and interface design purely using a mobile device, stepping up my skills step-by-step!
+        </p>
+    </div>
+
+    <!-- Instagram Button (Replace YOUR_USERNAME with your actual account name) -->
+    <div class="btn-container">
+        <a href="https://www.instagram.com/YOUR_USERNAME" target="_blank">
+            <button class="social-btn">
+                📸 Follow on Instagram
+            </button>
+        </a>
+    </div>
+
+    <!-- Website Rating Section -->
+    <div class="rating-box">
+        <div class="rating-title">Rate My Portfolio:</div>
+        <div class="stars">
+            <span class="star" onclick="rate(1)">★</span>
+            <span class="star" onclick="rate(2)">★</span>
+            <span class="star" onclick="rate(3)">★</span>
+            <span class="star" onclick="rate(4)">★</span>
+            <span class="star" onclick="rate(5)">★</span>
+        </div>
+    </div>
+
+    <!-- Rating JavaScript Script -->
+    <script>
+        function rate(starsCount) {
+            const stars = document.querySelectorAll('.star');
+            stars.forEach((star, index) => {
+                if (index < starsCount) {
+                    star.classList.add('active');
+                } else {
+                    star.classList.remove('active');
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
 
